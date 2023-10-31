@@ -42,6 +42,13 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Add omniauth for 3rd-party sign-in support
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection"
+
+# Use Google sign-in
+gem 'omniauth-google-oauth2'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
