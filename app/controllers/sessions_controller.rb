@@ -1,10 +1,18 @@
 class SessionsController < ApplicationController
-  def new
-    render :new
+  def create
+    @user = User.from_omniauth(request.env['omniauth.auth'])
+    if @user.persisted?
+      session[:user_id] = @user.id
+
+      redirect_to root_url, notice: "Logged in as #{@user.email}"
+    else
+      redirect_to root_url, alert: 'Failure'
+    end
   end
 
-  def create
-    user_info = request.env['omniauth.auth']
-    raise user_info # Your own session management should be placed here.
+  def destroy
+    session[:user_id] = nil
+
+    redirect_to root_path
   end
 end
