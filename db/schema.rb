@@ -15,13 +15,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_024125) do
   enable_extension "plpgsql"
 
   create_table "daily_logs", force: :cascade do |t|
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_daily_logs_on_user_id"
   end
 
   create_table "log_entries", force: :cascade do |t|
+    t.bigint "daily_log_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["daily_log_id"], name: "index_log_entries_on_daily_log_id"
   end
 
   create_table "users", force: :cascade do |t|

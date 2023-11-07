@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/login', to: 'sessions#new'
 
+  resources :daily_logs do
+    resources :log_entries
+  end
+
   root 'home#index'
 end

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :daily_logs
+
   validates :gmail_uid, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
 
