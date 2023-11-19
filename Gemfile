@@ -49,6 +49,9 @@ gem "omniauth-rails_csrf_protection"
 # Use Google sign-in
 gem 'omniauth-google-oauth2'
 
+# Use tailwind-css
+gem 'tailwindcss-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
