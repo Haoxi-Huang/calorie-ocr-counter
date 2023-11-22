@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Daily logs</h1>
+
+<div id="daily_logs">
+  <% @daily_logs.each do |daily_log| %>
+    <%= render daily_log %>
+    <p>
+      <%= link_to "Show this daily log", daily_log %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New daily log", new_daily_log_path %>
