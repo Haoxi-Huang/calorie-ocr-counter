@@ -49,6 +49,9 @@ gem "omniauth-rails_csrf_protection"
 # Use Google sign-in
 gem 'omniauth-google-oauth2'
 
+# Use Google Cloud Storage
+gem "google-cloud-storage", "~> 1.11", require: false
+
 # Use tailwind-css
 gem 'tailwindcss-rails'
 
