@@ -1,17 +1,36 @@
-<%= form_with(model: log_entry) do |form| %>
-  <% if log_entry.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(log_entry.errors.count, "error") %> prohibited this log_entry from being saved:</h2>
+ <div class='flex'>
+  <%= form_with(model: [:daily_log, @log_entry]) do |form| %>
+    <% if @log_entry.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@log_entry.errors.count, "error") %> prohibited this log entry from being saved:</h2>
 
-      <ul>
-        <% log_entry.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @log_entry.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='flex flex-col'>
+      <%= form.label :food_name %>
+      <%= form.text_field :food_name %>
+    </div>
+    <div class='flex flex-col'>
+      <%= form.label :calorie_count %>
+      <%= form.number_field :calorie_count %>
+    </div>
+    <div class='flex flex-col'>
+      <%= form.label :serving_count %>
+      <%= form.number_field :serving_count %>
+    </div>
+    <div class='flex flex-col'>
+      <%= form.label :calorie_count_image %>
+      <%= form.file_field :photo, accept: 'image/*' %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

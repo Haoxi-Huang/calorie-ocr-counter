@@ -1,10 +1,10 @@
-<h1>Editing log entry</h1>
+<h1>Editing <%= @log_entry.food_name %> on <%= @daily_log.date %></h1>
 
 <%= render "form", log_entry: @log_entry %>
 
 <br>
 
 <div>
-  <%= link_to "Show this log entry", @log_entry %> |
-  <%= link_to "Back to log entries", log_entries_path %>
+  <%= link_to "Show this log entry", daily_log_log_entry_path(@daily_log, @log_entry) %> |
+  <%= link_to "Back to log entries", daily_log_log_entries_path(@daily_log) %>
 </div>

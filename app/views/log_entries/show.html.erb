@@ -1,10 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @log_entry %>
+<div class="flex flex-col">
+  <div class="flex flex-col">
+    <h2><%= @log_entry.food_name %></h2>
 
-<div>
-  <%= link_to "Edit this log entry", edit_log_entry_path(@log_entry) %> |
-  <%= link_to "Back to log entries", log_entries_path %>
+    <p>Serving Count: <%= @log_entry.serving_count %></p>
+    <p>Calorie Count: <%= @log_entry.calorie_count %></p>
+    <p>Total Calories: <%= @log_entry.serving_count * @log_entry.calorie_count %></p>
+  </div>
 
-  <%= button_to "Destroy this log entry", @log_entry, method: :delete %>
+  <div class="flex flex-row">
+    <%= link_to "Edit this log entry", edit_daily_log_log_entry_path(@daily_log, @log_entry) %> |
+    <%= link_to "Back to log entries", daily_log_log_entries_path(@daily_log) %>
+
+    <%= button_to "Destroy this log entry", daily_log_log_entry_path(@daily_log, @log_entry), method: :delete %>
+  </div>
 </div>

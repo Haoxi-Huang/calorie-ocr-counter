@@ -4,9 +4,8 @@
 
 <div id="daily_logs">
   <% @daily_logs.each do |daily_log| %>
-    <%= render daily_log %>
     <p>
-      <%= link_to "Show this daily log", daily_log %>
+      <%= link_to daily_log.date, daily_log_path(daily_log) %>
     </p>
   <% end %>
 </div>

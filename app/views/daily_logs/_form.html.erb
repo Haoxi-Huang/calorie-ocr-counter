@@ -1,17 +1,24 @@
-<%= form_with(model: daily_log) do |form| %>
-  <% if daily_log.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(daily_log.errors.count, "error") %> prohibited this daily_log from being saved:</h2>
+ <div class='flex'>
+  <%= form_with(model: @daily_log) do |form| %>
+    <% if @daily_log.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@daily_log.errors.count, "error") %> prohibited this daily log from being saved:</h2>
 
-      <ul>
-        <% daily_log.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @daily_log.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='flex flex-col'>
+      <%= form.label :date %>
+      <%= form.date_field :date %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
