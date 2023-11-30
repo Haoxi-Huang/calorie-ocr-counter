@@ -18,12 +18,12 @@ local:
 google_dev:
   service: GCS
   project: calorie-ocr-counter
-  credentials: <%= Rails.application.credentials.gcskey.as_json %>
+  credentials: <%= Rails.root.join('./service_account_private_key.json') %>
   bucket: calorie-ocr-counter-test-bucket
 
 google:
   service: GCS
-  credentials: <%= Rails.application.credentials.gcskey.as_json %>
+  credentials: <%= Rails.root.join('./service_account_private_key.json') %>
   project: calorie-ocr-counter
   bucket: calorie-ocr-counter-prod-bucket
 
